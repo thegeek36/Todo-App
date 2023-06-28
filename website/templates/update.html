@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}
+    Update
+{% endblock title %}
+{% block body %}
+<div class="container my-3">
+    <h2>Update Todo</h2>
+    <form action="/update/{{todo.id}}" method="POST">
+        <div class="mb-3">
+          <label for="title" class="form-label">Todo Title </label>
+          <input type="text" class="form-control" value = "{{todo.title}}"  name = "title" id="title" aria-describedby="emailHelp">
+          <div id="emailHelp" class="form-text"></div>
+        </div>
+        <div class="mb-3">
+          <label for="desc" class="form-label">Description</label>
+          <input type="text" class="form-control" name = "desc" id="desc" value = "{{todo.desc}}" aria-describedby="inputGroup-sizing-lg">
+        
+        </div>
+        <!-- <div class="mb-3 form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+          <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        </div> -->
+        <button type="submit" class="btn btn-outline-dark">Update</button>
+      </form>
+{% endblock body %}

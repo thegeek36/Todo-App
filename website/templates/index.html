@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% block title %}
+    Home
+{% endblock title %}
+{% block body %}
+
+
+    <h2 class="page-header my-3">Welcome {{user.first_name}}</h2> 
+    <div class="container my-3">
+        <h2>Add a Todo</h2>
+        <form action="/" method="POST">
+            <div class="mb-3">
+              <label for="title" class="form-label">Todo Title </label>
+              <input type="text" class="form-control" name = "title" id="title" aria-describedby="emailHelp">
+              <div id="emailHelp" class="form-text"></div>
+            </div>
+            <div class="mb-3">
+              <label for="desc" class="form-label">Description</label>
+              <input type="text" class="form-control" name = "desc" id="desc" aria-describedby="inputGroup-sizing-lg">
+            
+            </div>
+            <button type="submit" class="btn btn-outline-dark">Submit</button>
+          </form>
+    </div>
+    {% with messages = get_flashed_messages(with_categories=true) %} {% if
+      messages %}  {% if category ==
+      'error' %}
+      <div class="alert alert-danger alter-dismissable fade show" role="alert">
+        {{ message }}
+        <button type="button" class="btn-close" data-dismiss="alert">
+        </button>
+      </div>
+        {% endif %}  {% endif %} {% endwith %}
+
+    <div class="container my-3">
+        <h2>Your Todos</h2>
+
+                {% if user.todo|length == 0 %}
+                <div class="alert alert-dark" role="alert">
+                    There are no todos available!!Add Now
+                  </div>
+                {% else %}
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">SNo</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Time</th>
+                        <th scope="col">Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                {% for todo in user.todo %}
+                <tr>
+                    <th scope="row">{{loop.index}}</th>
+                    <td>{{todo.title}}</td>
+                    <td>{{todo.desc}}</td>
+                    <td>{{todo.date_created}}</td>
+                    <td><a href = "/delete/{{todo.id}}" type="button" class="btn btn-outline-dark btn-sm mx-1">Delete</a>
+                    <a href="/update/{{todo.id}}" type="button" class="btn btn-outline-dark btn-sm mx-1">Update</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+          </table>
+          {% endif %}
+        </div>
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+
+{% endblock body %}
