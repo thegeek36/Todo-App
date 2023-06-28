@@ -11,13 +11,15 @@
 
     <link rel = "stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <script src = "{{ url_for('static', filename='js/test.js') }}"></script>
+    
     <title>{% block title %}
         
     {% endblock title %}-My Todo</title>
+    <link rel="shortcut icon" href="favicon.ico">
 </head>
 
 <body>  
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #535556;">
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #057eff;">
         <div class="container-fluid">
             <a class="navbar-brand" href="/">My Todo</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"

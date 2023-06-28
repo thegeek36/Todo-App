@@ -1,13 +1,12 @@
-from flask import Blueprint, render_template, request, flash, redirect, url_for
+from flask import Blueprint, render_template, request, flash, redirect, url_for,Flask
 from .models import User
 from werkzeug.security import generate_password_hash, check_password_hash
-from . import db   ##means from __init__.py import db
+from . import db ,app##means from __init__.py import db
 from flask_login import login_user, login_required, logout_user, current_user
-
+from flask_mail import Message,Mail
 
 auth = Blueprint('auth', __name__)
-
-
+mail = Mail(app)
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
@@ -53,6 +52,10 @@ def sign_up():
         elif len(password1) < 7:
             flash('Password must be at least 7 characters.', category='error')
         else:
+            msg = Message('Welcome to Your App',sender='pptodo01@gmail.com', recipients=[request.form['email']])
+            email_content = render_template('email.html')
+            msg.html = email_content
+            mail.send(msg)
             new_user = User(email=email, first_name=first_name, password=generate_password_hash(
                 password1, method='sha256'))
             db.session.add(new_user)
@@ -60,5 +63,5 @@ def sign_up():
             login_user(new_user, remember=True)
             flash('Account created!', category='success')
             return redirect(url_for('views.home'))
-
+        
     return render_template("sign_up.html", user=current_user)

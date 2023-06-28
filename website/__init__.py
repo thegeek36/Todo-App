@@ -2,19 +2,26 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from os import path
 from flask_login import LoginManager
+from flask_mail import Message,Mail
 
 db = SQLAlchemy()
 DB_NAME = "database.db"
-
-
+app = Flask(__name__)
 def create_app():
-    app = Flask(__name__)
     app.config['SECRET_KEY'] = 'hjshjhdjah kjshkjdhjs'
     app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
     db.init_app(app)
 
+    app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+    app.config['MAIL_PORT'] = 465
+    app.config['MAIL_USE_SSL'] = True
+    app.config['MAIL_USERNAME'] = 'pptodo01@gmail.com'  # replace with your email address
+    app.config['MAIL_PASSWORD'] = 'gyunavvwevzdrbad'  # replace with your email password
+    
+
     from .views import views
     from .auth import auth
+
 
     app.register_blueprint(views, url_prefix='/')
     app.register_blueprint(auth, url_prefix='/')
@@ -31,7 +38,6 @@ def create_app():
     @login_manager.user_loader
     def load_user(sno):
         return User.query.get(int(sno))
-
     return app
 
 

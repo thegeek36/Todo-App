@@ -3,8 +3,6 @@
     Home
 {% endblock title %}
 {% block body %}
-
-
     <h2 class="page-header my-3">Welcome {{user.first_name}}</h2> 
     <div class="container my-3">
         <h2>Add a Todo</h2>
@@ -40,12 +38,12 @@
                     There are no todos available!!Add Now
                   </div>
                 {% else %}
-                <table class="table">
+                <table class="table" style="width:100%">
                     <thead>
                       <tr>
                         <th scope="col">SNo</th>
                         <th scope="col">Title</th>
-                        <th scope="col">Description</th>
+                        <th scope="col" style="width:50%">Description</th>
                         <th scope="col">Time</th>
                         <th scope="col">Actions</th>
                       </tr>
@@ -55,7 +53,7 @@
                 <tr>
                     <th scope="row">{{loop.index}}</th>
                     <td>{{todo.title}}</td>
-                    <td>{{todo.desc}}</td>
+                    <td style="text-align: jus" >{{todo.desc}}</td>
                     <td>{{todo.date_created}}</td>
                     <td><a href = "/delete/{{todo.id}}" type="button" class="btn btn-outline-dark btn-sm mx-1">Delete</a>
                     <a href="/update/{{todo.id}}" type="button" class="btn btn-outline-dark btn-sm mx-1">Update</a>
