@@ -3,16 +3,26 @@
 
 * Some Screenshots of the app
 * Register
-![Screenshot (111)](https://github.com/thegeek36/Todo-App/assets/76440306/77c117a4-8a10-44a3-bd4d-96ae9943cdb3)
+
+  ![Screenshot (111)](https://github.com/thegeek36/Todo-App/assets/76440306/a55f4db6-24fd-407d-8d24-a72121ada022)
+
+  
 * Welcome Mail
-![Screenshot (111)](https://github.com/thegeek36/Todo-App/assets/76440306/a55f4db6-24fd-407d-8d24-a72121ada022)  
-* 
+  
 ![Screenshot (112)](https://github.com/thegeek36/Todo-App/assets/76440306/2a54d600-3bd8-4cfb-b503-ca57c1db88f8)
+
 * Login
+  
 ![Screenshot (106)](https://github.com/thegeek36/Todo-App/assets/76440306/6eb65b8c-c619-4330-af1f-526283f7025b)
+
 * HomePage
+  
 ![Screenshot (108)](https://github.com/thegeek36/Todo-App/assets/76440306/06475eba-dce0-499f-89fa-b397742cd8ef)
+
 * Update Task
+  
 ![Screenshot (109)](https://github.com/thegeek36/Todo-App/assets/76440306/c9cb1599-8fde-4bd1-bece-085b23f68a0c)
-*Mail After Updation.
+
+*Mail After Updation
+
 ![Screenshot (110)](https://github.com/thegeek36/Todo-App/assets/76440306/949d356b-1d73-4b13-99b4-b3ef931d187b)
