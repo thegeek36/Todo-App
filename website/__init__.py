@@ -15,8 +15,8 @@ def create_app():
     app.config['MAIL_SERVER'] = 'smtp.gmail.com'
     app.config['MAIL_PORT'] = 465
     app.config['MAIL_USE_SSL'] = True
-    app.config['MAIL_USERNAME'] = 'pptodo01@gmail.com'  # replace with your email address
-    app.config['MAIL_PASSWORD'] = 'gyunavvwevzdrbad'  # replace with your email password
+    app.config['MAIL_USERNAME'] = '########'  # replace with your email address
+    app.config['MAIL_PASSWORD'] = '########'  # replace with your email password
     
 
     from .views import views
